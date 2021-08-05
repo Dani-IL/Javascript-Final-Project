@@ -18,30 +18,30 @@ let cargarApp = () => {
 
 let totalIngresos = () => {
     let totalIngreso = 0;
-    for (let ingreso of ingresos) {
-        totalIngreso += ingreso.valor;
-    }
+    let imprimir = JSON.parse(localStorage.getItem("presupuestoIngresos"))
+    imprimir.forEach(element => {
+        totalIngreso += element._valor;
+    });
     return totalIngreso;
 };
 
 let totalEgresos = () => {
     let totalEgreso = 0;
-    for (let egreso of egresos) {
-        totalEgreso += egreso.valor;
-    }
+    let imprimir = JSON.parse(localStorage.getItem("presupuestoEgresos"))
+    imprimir.forEach(element => {
+        totalEgreso += element._valor;
+    });
     return totalEgreso;
 };
 
 let cargarCabecero = () => {
     let presupuesto = totalIngresos() - totalEgresos();
     let porcentajeEgreso = totalEgresos() / totalIngresos();
-    document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
-    document.getElementById("porcentaje").innerHTML =
-        formatoPorcentaje(porcentajeEgreso);
-    document.getElementById("ingresos").innerHTML = formatoMoneda(
-        totalIngresos()
-    );
-    document.getElementById("egresos").innerHTML = formatoMoneda(totalEgresos());
+    // ------------ JQuery --------------------
+    $("#presupuesto").html(formatoMoneda(presupuesto));
+    $("#porcentaje").html(formatoPorcentaje(porcentajeEgreso));
+    $("#ingresos").html(formatoMoneda(totalIngresos()));
+    $("#egresos").html(formatoMoneda(totalEgresos()));
 };
 
 const formatoMoneda = (valor) => {
@@ -65,31 +65,33 @@ const cargarIngresos = () => {
     if (imprimir != null) {
         imprimir.forEach(element => {
             ingresosHTML += crearIngresoHTML(element);
-            document.getElementById("lista-ingresos").innerHTML = ingresosHTML;
+            // ------------ JQuery --------------------
+            $("#lista-ingresos").html(ingresosHTML);
         });
     } else {
         for (let ingreso of ingresos) {
             ingresosHTML += crearIngresoHTML(ingreso);
         }
-        document.getElementById("lista-ingresos").innerHTML = ingresosHTML;
+        // ------------ JQuery --------------------
+        $("#lista-ingresos").html(ingresosHTML);
         console.log("Se imprimen valores x defecto del Array Ingresos");
     }
 };
 
 const crearIngresoHTML = (element) => {
     let ingresoHTML = `
-    <div class="elemento limpiarEstilos">
-    <div class="elemento_descripcion">${element._descripcion}</div>
-    <div class="derecha limpiarEstilos">
-        <div class="elemento_valor">+ ${formatoMoneda(element._valor)}</div>
-        <div class="elemento_eliminar">
-            <button class='elemento_eliminar--btn'>
-                <ion-icon name="close-circle-outline"
-                onclick='eliminarIngreso(${element._id})'></ion-icon>
-            </button>
-        </div>
-    </div>
-</div>
+         <div class="elemento limpiarEstilos">
+         <div class="elemento_descripcion">${element._descripcion}</div>
+         <div class="derecha limpiarEstilos">
+             <div class="elemento_valor">+ ${formatoMoneda(element._valor)}</div>
+             <div class="elemento_eliminar">
+                 <button class='elemento_eliminar--btn'>
+                     <ion-icon name="close-circle-outline"
+                     onclick='eliminarIngreso(${element._id})'></ion-icon>
+                 </button>
+             </div>
+         </div>
+     </div>
     `;
     return ingresoHTML;
 };
@@ -108,13 +110,15 @@ const cargarEgresos = () => {
     if (imprimir != null) {
         imprimir.forEach(element => {
             egresosHTML += crearEgresoHTML(element);
-            document.getElementById("lista-egresos").innerHTML = egresosHTML;
+            // ------------ JQuery --------------------
+            $("#lista-egresos").html(egresosHTML);
         });
     } else {
         for (let egreso of egresos) {
             egresosHTML += crearEgresoHTML(egreso);
         }
-        document.getElementById("lista-egresos").innerHTML = egresosHTML;
+        // ------------ JQuery --------------------
+        $("#lista-egresos").html(egresosHTML);
         console.log("Se imprimen valores x defecto del Array Egresos");
     }
 }
@@ -188,7 +192,9 @@ let agregarDato = () => {
     }
 };
 
-let boton = document.getElementById("ion");
-boton.addEventListener("click", agregarDato);
 
-document.body.onload = cargarApp;
+// ------------ JQuery --------------------
+
+$("#ion").click((e) => { agregarDato() });
+
+$(() => { cargarApp() });
