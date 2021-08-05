@@ -18,17 +18,19 @@ let cargarApp = () => {
 
 let totalIngresos = () => {
     let totalIngreso = 0;
-    for (let ingreso of ingresos) {
-        totalIngreso += ingreso.valor;
-    }
+    let imprimir = JSON.parse(localStorage.getItem("presupuestoIngresos"))
+    imprimir.forEach(element => {
+        totalIngreso += element._valor;
+    });
     return totalIngreso;
 };
 
 let totalEgresos = () => {
     let totalEgreso = 0;
-    for (let egreso of egresos) {
-        totalEgreso += egreso.valor;
-    }
+    let imprimir = JSON.parse(localStorage.getItem("presupuestoEgresos"))
+    imprimir.forEach(element => {
+        totalEgreso += element._valor;
+    });
     return totalEgreso;
 };
 
