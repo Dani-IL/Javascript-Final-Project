@@ -45,12 +45,20 @@ body {
 }
 
 .presupuesto_titulo{
-    font-size: 20px;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
     text-align: center;
     margin-bottom: 10px;
     font-weight: 300;
 }
 
+.presupuesto_titulo1{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
 .presupuesto_valor {
     font-weight: 300;
     font-size: 46px;
@@ -116,10 +124,10 @@ body {
 }
 
 .agregar_tipo {
-    width: 55px;
+    width: 90px;
     border: 1px solid #e7e7e7;
     height: 44px;
-    font-size: 18px;
+    font-size: 14px;
     color: inherit;
     background-color: #fff;
     margin-right: 10px;
@@ -195,6 +203,17 @@ h2 {
 .elemento {
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
+}
+
+.modo {
+    padding: 15px;
+    padding-top: 30px;
+    width: 90px;
+    height: 40px;
+    margin-left: 20px;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: inline;
 }
 
 .elemento:first-child { border-top: 1px solid #e7e7e7; }
