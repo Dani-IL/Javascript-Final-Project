@@ -1,15 +1,16 @@
 "use strict";
 
 const ingresos = [];
-
 const egresos = [];
 
+//incia el programa
 let cargarApp = () => {
   cargarCabecero();
   cargarIngresos();
   cargarEgresos();
 };
 
+//calculo la sumatoria de ingresos
 let totalIngresos = () => {
   let totalIngreso = 0;
   let imprimir = JSON.parse(localStorage.getItem("presupuestoIngresos"));
@@ -23,6 +24,7 @@ let totalIngresos = () => {
   return totalIngreso;
 };
 
+//calculo la sumatoria de egresos
 let totalEgresos = () => {
   let totalEgreso = 0;
   let imprimir = JSON.parse(localStorage.getItem("presupuestoEgresos"));
@@ -36,6 +38,7 @@ let totalEgresos = () => {
   return totalEgreso;
 };
 
+//cargo encabezado llamando funciones de moneda y %
 let cargarCabecero = () => {
   let presupuesto = totalIngresos() - totalEgresos();
   let porcentajeEgreso = totalEgresos() / totalIngresos();
@@ -61,6 +64,7 @@ const formatoPorcentaje = (valor) => {
   });
 };
 
+//muestro en pantalla la lista de ingresos
 const cargarIngresos = () => {
   let ingresosHTML = "";
   let imprimir = JSON.parse(localStorage.getItem("presupuestoIngresos"));
@@ -95,6 +99,7 @@ const crearIngresoHTML = (element) => {
   return ingresoHTML;
 };
 
+//funcion para eliminar ingresos
 const eliminarIngreso = (id) => {
   let borrar = JSON.parse(localStorage.getItem("presupuestoIngresos"));
   let actualizo = borrar.filter((e) => e._id != id);
@@ -103,6 +108,7 @@ const eliminarIngreso = (id) => {
   cargarIngresos();
 };
 
+//muestro en pantalla la lista de egresos
 const cargarEgresos = () => {
   let egresosHTML = "";
   let imprimir = JSON.parse(localStorage.getItem("presupuestoEgresos"));
@@ -137,6 +143,7 @@ const crearEgresoHTML = (egreso) => {
   return egresoHTML;
 };
 
+//funcion para eliminar egresos
 let eliminarEgreso = (id) => {
   let borrar = JSON.parse(localStorage.getItem("presupuestoEgresos"));
   let actualizo = borrar.filter((e) => e._id != id);
@@ -145,6 +152,7 @@ let eliminarEgreso = (id) => {
   cargarEgresos();
 };
 
+//funcion para alta de ingresos (formulario)
 let agregarDato = () => {
   let forma = document.forms["forma"];
   let tipo = forma["tipo"];
@@ -189,10 +197,12 @@ let agregarDato = () => {
 
 // ------------ JQuery --------------------
 
+// capturo click para agregar dato
 $("#ion").click((e) => {
   agregarDato();
 });
 
+// inicio el programa con la carga inicial
 $(() => {
   cargarApp();
 });
