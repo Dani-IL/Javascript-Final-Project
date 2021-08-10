@@ -7,12 +7,24 @@
     <title>Aplicación Presupuesto</title>
     <link href="css/estilos.css" rel="stylesheet" />
   </head>
+
   <body>
     <div class="cabecero">
-      <!-- <div class="modo">
-        <img src="./images/sol.png" alt="sol" width="30" height="30px" id="sol"/>
-        <img src="./images/luna.png" alt="luna" width="30" height="30px" id="luna"/>        
-      </div> -->
+      <!-- Imprimir -->
+      <button id="printbtn">
+        <ion-icon size="large" name="print"></ion-icon>
+      </button>
+      <!-- Fin imprimir -->
+      <!-- Modo Oscuro -->
+      <div class="modo">
+        <button id="sun">
+          <ion-icon size="large" name="sunny"></ion-icon>
+        </button>
+        <button id="moon">
+          <ion-icon size="large" name="moon"></ion-icon>
+        </button>
+      </div>
+      <!-- Fin modo oscuro -->
       <div class="presupuesto">
         <div class="presupuesto_titulo">Balance de gastos</div>
         <div class="presupuesto_titulo1">Presupuesto Disponible</div>
@@ -64,6 +76,10 @@
     <div class="contenedor limpiarEstilos">
       <div class="ingreso">
         <h2 class="ingreso_titulo">Ingresos</h2>
+        <button class="ingreso_borrar--btn">
+          <ion-icon name="close-circle-outline" id="ingreso_borrar--btn"></ion-icon>
+        </button>
+        <h4 class="ingreso_borrar">Borrar todo&nbsp</h4>
         <div id="lista-ingresos">
           <div class="elemento limpiarEstilos">
             <div class="elemento_descripcion"></div>
@@ -91,6 +107,10 @@
       </div>
       <div class="egreso">
         <h2 class="egreso_titulo">Egresos</h2>
+        <button class="egreso_borrar--btn">
+          <ion-icon name="close-circle-outline" id="egreso_borrar--btn"></ion-icon>
+        </button>
+        <h4 class="egreso_borrar">Borrar todo&nbsp</h4>
         <div id="lista-egresos">
           <div class="elemento limpiarEstilos">
             <div class="elemento_descripcion"></div>

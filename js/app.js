@@ -29,10 +29,10 @@ let totalEgresos = () => {
   let totalEgreso = 0;
   let imprimir = JSON.parse(localStorage.getItem("presupuestoEgresos"));
   if (imprimir != null) {
-  imprimir.forEach((element) => {
-    totalEgreso += element._valor;
-  });
-} else {
+    imprimir.forEach((element) => {
+      totalEgreso += element._valor;
+    });
+  } else {
     console.log("El array esta nulo");
   }
   return totalEgreso;
@@ -75,7 +75,7 @@ const cargarIngresos = () => {
       $("#lista-ingresos").html(ingresosHTML);
     });
   } else {
-    console.log("Se imprimen valores x defecto del Array Ingresos");
+    console.log("El array Ingresos esta nulo");
   }
 };
 
@@ -119,7 +119,7 @@ const cargarEgresos = () => {
       $("#lista-egresos").html(egresosHTML);
     });
   } else {
-    console.log("Se imprimen valores x defecto del Array Egresos");
+    console.log("El array Egresos esta nulo");
   }
 };
 const crearEgresoHTML = (egreso) => {
@@ -200,6 +200,18 @@ let agregarDato = () => {
 // capturo click para agregar dato
 $("#ion").click((e) => {
   agregarDato();
+});
+
+// capturo click para borrar toda la tabla Ingresos
+$("#ingreso_borrar--btn").click((e) => {
+  localStorage.removeItem("presupuestoIngresos");
+  location.reload();
+});
+
+// capturo click para borrar toda la tabla Egresos
+$("#egreso_borrar--btn").click((e) => {
+  localStorage.removeItem("presupuestoEgresos");
+  location.reload();
 });
 
 // inicio el programa con la carga inicial
