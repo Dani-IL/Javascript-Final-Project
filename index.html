@@ -25,6 +25,12 @@
         </button>
       </div>
       <!-- Fin modo oscuro -->
+      <!-- Cotizacion BTC -->
+      <button class="btc">
+        <ion-icon size="large" name="logo-bitcoin"></ion-icon>
+      </button>
+      <div class="btcvalor"></div>
+      <!-- Fin cotizacion BTC -->
       <div class="presupuesto">
         <div class="presupuesto_titulo">Balance de gastos</div>
         <div class="presupuesto_titulo1">Presupuesto Disponible</div>
@@ -77,7 +83,10 @@
       <div class="ingreso">
         <h2 class="ingreso_titulo">Ingresos</h2>
         <button class="ingreso_borrar--btn">
-          <ion-icon name="close-circle-outline" id="ingreso_borrar--btn"></ion-icon>
+          <ion-icon
+            name="close-circle-outline"
+            id="ingreso_borrar--btn"
+          ></ion-icon>
         </button>
         <h4 class="ingreso_borrar">Borrar todo&nbsp</h4>
         <div id="lista-ingresos">
@@ -108,7 +117,10 @@
       <div class="egreso">
         <h2 class="egreso_titulo">Egresos</h2>
         <button class="egreso_borrar--btn">
-          <ion-icon name="close-circle-outline" id="egreso_borrar--btn"></ion-icon>
+          <ion-icon
+            name="close-circle-outline"
+            id="egreso_borrar--btn"
+          ></ion-icon>
         </button>
         <h4 class="egreso_borrar">Borrar todo&nbsp</h4>
         <div id="lista-egresos">
@@ -154,6 +166,7 @@
     <script src="./js/Dato.js"></script>
     <script src="./js/Ingreso.js"></script>
     <script src="./js/Egreso.js"></script>
+    <script src="./js/cotizacion.js"></script>
     <script src="./js/modo.js"></script>
     <script src="./js/imprimir.js"></script>
     <script src="./js/app.js"></script>
