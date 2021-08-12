@@ -4,7 +4,7 @@ $(function () {
   $("#printbtn").click(function () {
     window.print();
   });
-  //Muestro texto con hoover
+  //Muestro texto con hover
   $("#printbtn").hover(
     function () {
       $(this).append($("<span> Imprimir</span>"));

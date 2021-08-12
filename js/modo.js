@@ -34,7 +34,7 @@ const aclarar = () => {
 $("#sun").click(function () {
   aclarar();
 });
-//Muestro texto con hoover
+//Muestro texto con hover
 $("#sun").hover(
   function () {
     $(this).append($("<span> Modo claro</span>"));
